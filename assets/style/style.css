@@ -1,0 +1,15 @@
+.font {
+    font-family: 'Amatic SC', sans-serif;
+    font-family: 'Cinzel', serif;
+
+}
+
+.markerfont {
+    font-family: 'Amatic SC', sans-serif;
+    font-family: 'Cinzel', serif;
+    font-family: 'Permanent Marker', cursive;
+}
+
+.underline {
+    text-decoration: underline;
+}
