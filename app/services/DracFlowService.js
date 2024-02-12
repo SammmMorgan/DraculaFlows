@@ -1,15 +1,32 @@
 import { AppState } from "../AppState.js"
 import { DracFlow } from "../models/DracFlow.js"
+import { loadState, saveState } from "../utils/Store.js"
+
+function _saveFlows() {
+    saveState('DracFlows', AppState.DracFlows)
+}
+
+
 
 class DracFlowService {
+    _loadFlows() {
+        const currentFlows = loadState('DracFlows', [DracFlow])
+        AppState.DracFlows = currentFlows
+    }
+
     killFlow(flowID) {
-        throw new Error("Method not implemented.");
+        const removedFlow = AppState.DracFlows.findIndex(flow => flow.id == flowID)
+
+        AppState.DracFlows.splice(removedFlow, 1)
+        _saveFlows()
+
     }
     createFlow(newFlowData) {
         const newFlow = new DracFlow(newFlowData)
 
         AppState.DracFlows.push(newFlow)
         console.log(newFlow);
+        _saveFlows()
         return newFlow
     }
     updateFlow(updatedFlow) {
