@@ -27,7 +27,8 @@ class DracFlowService {
         AppState.DracFlows.push(newFlow)
         console.log(newFlow);
         _saveFlows()
-        return newFlow
+        // return newFlow
+        this.setCurrentFlow(newFlow.id)
     }
     updateFlow(updatedFlow) {
         const activeFlow = AppState.currentFlow

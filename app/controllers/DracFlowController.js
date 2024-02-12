@@ -65,7 +65,7 @@ export class DracFlowController {
             // console.log(newFlowData);
             dracFlowService.createFlow(newFlowData)
 
-            AppState.currentFlow = dracFlowService.createFlow
+            // AppState.currentFlow = dracFlowService.createFlow
         }
 
         catch {
