@@ -24,13 +24,20 @@ export class DracFlowController {
     constructor() {
         dracFlowService.loadFlows()
         _drawFlowList()
+        this.setCounter()
         AppState.on('DracFlows', _drawFlowList)
+        AppState.on('DracFlows', this.setCounter)
         AppState.on('currentFlow', _drawActiveFlow)
     }
 
     setCurrentFlow(flowId) {
         // console.log('setting flow', flowId);
         dracFlowService.setCurrentFlow(flowId)
+    }
+
+    setCounter() {
+        const counterElement = document.getElementById('counter')
+        counterElement.innerText = `Current Flows: ${AppState.DracFlows.length}`
     }
 
     saveCurrentFlow() {
