@@ -22,6 +22,7 @@ function _drawFlowList() {
 
 export class DracFlowController {
     constructor() {
+        dracFlowService.loadFlows()
         _drawFlowList()
         AppState.on('DracFlows', _drawFlowList)
         AppState.on('currentFlow', _drawActiveFlow)

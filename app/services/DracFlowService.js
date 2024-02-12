@@ -9,7 +9,7 @@ function _saveFlows() {
 
 
 class DracFlowService {
-    _loadFlows() {
+    loadFlows() {
         const currentFlows = loadState('DracFlows', [DracFlow])
         AppState.DracFlows = currentFlows
     }
@@ -33,6 +33,7 @@ class DracFlowService {
         const activeFlow = AppState.currentFlow
 
         activeFlow.body = updatedFlow
+        _saveFlows()
         // console.log(updatedFlow);
         AppState.emit('currentFlow')
     }
